@@ -32,9 +32,29 @@ export default function () {
           tabBarInactiveTintColor: "#979797",
         })}
       >
-        <Tab.Screen name="Film" component={FilmTab} />
+        <Tab.Screen
+          name="Film"
+          component={FilmTab}
+          options={{
+            tabBarLabel: "Film",
+            tabBarLabelStyle: {
+              fontSize: 16,
+              color: "#000",
+            },
+          }}
+        />
 
-        <Tab.Screen name="TV" component={TVTab} />
+        <Tab.Screen
+          name="TV"
+          component={TVTab}
+          options={{
+            tabBarLabel: "Film",
+            tabBarLabelStyle: {
+              fontSize: 16,
+              color: "#000",
+            },
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
