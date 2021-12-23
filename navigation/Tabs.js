@@ -30,14 +30,27 @@ export default function () {
           },
           tabBarActiveTintColor: "#000",
           tabBarInactiveTintColor: "#979797",
+          tabBarLabelPosition: "beside-icon",
           tabBarLabelStyle: {
-            fontSize: 16,
+            fontSize: 14,
           },
         })}
       >
-        <Tab.Screen name="Film" component={FilmTab} />
+        <Tab.Screen
+          name="Film"
+          component={FilmTab}
+          options={{
+            tabBarLabel: "Films",
+          }}
+        />
 
-        <Tab.Screen name="TV" component={TVTab} />
+        <Tab.Screen
+          name="TV"
+          component={TVTab}
+          options={{
+            tabBarLabel: "TV Shows",
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
