@@ -1,13 +1,18 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { QueryClient, QueryClientProvider } from "react-query";
 import Tabs from "./navigation/Tabs";
+
+const queryClient = new QueryClient();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Tabs />
-      <StatusBar style="auto" />
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <View style={styles.container}>
+        <Tabs />
+        <StatusBar style="auto" />
+      </View>
+    </QueryClientProvider>
   );
 }
 
