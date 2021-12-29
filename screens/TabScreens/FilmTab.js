@@ -1,10 +1,10 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import NowPlaying from "../../components/NowPlaying/NowPlaying";
 
 export default function FilmTab() {
   return (
     <View style={styles.container}>
-      <Text>Fuckoff!</Text>
+      <NowPlaying />
     </View>
   );
 }
