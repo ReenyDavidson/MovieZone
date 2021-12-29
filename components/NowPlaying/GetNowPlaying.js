@@ -31,6 +31,7 @@ export default function GetNowPlaying() {
   return (
     <FlatList
       data={data.results}
+      horizontal={true}
       renderItem={({ item }) => {
         return <NowPlaying item={item} />;
       }}

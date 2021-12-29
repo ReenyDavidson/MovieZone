@@ -1,10 +1,10 @@
 import { StyleSheet, View } from "react-native";
-import NowPlaying from "../../components/NowPlaying/NowPlaying";
+import GetNowPlaying from "../../components/NowPlaying/GetNowPlaying";
 
 export default function FilmTab() {
   return (
     <View style={styles.container}>
-      <NowPlaying />
+      <GetNowPlaying />
     </View>
   );
 }
