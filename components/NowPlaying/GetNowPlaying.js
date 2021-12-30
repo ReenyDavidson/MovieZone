@@ -38,9 +38,10 @@ export default function GetNowPlaying() {
       >
         <Text
           style={{
+            fontFamily: "Gluten-SemiBold",
             color: "#fff",
             fontSize: 25,
-            fontWeight: "bold",
+
             textAlign: "left",
             margin: 15,
           }}
@@ -49,6 +50,7 @@ export default function GetNowPlaying() {
         </Text>
         <Text
           style={{
+            fontFamily: "Gluten-Light",
             color: "#fff",
             fontSize: 20,
             textAlign: "right",
@@ -61,6 +63,8 @@ export default function GetNowPlaying() {
       <FlatList
         data={data.results}
         showsHorizontalScrollIndicator={false}
+        decelerationRate={0}
+        bounces={false}
         horizontal={true}
         renderItem={({ item }) => {
           return <NowPlaying item={item} />;

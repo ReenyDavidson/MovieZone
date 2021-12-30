@@ -1,9 +1,14 @@
-import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import { View, Text, ImageBackground, StyleSheet, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 export default function NowPlaying({ item }) {
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() => navigation.navigate("NowPlayingDetailScreen", item)}
+    >
       <View
         style={{
           margin: 5,
@@ -31,6 +36,7 @@ export default function NowPlaying({ item }) {
                   style={{
                     color: "#fff",
                     textAlign: "center",
+                    fontFamily: "Gluten-Regular",
                   }}
                 >
                   Action
@@ -41,6 +47,7 @@ export default function NowPlaying({ item }) {
                   style={{
                     color: "#fff",
                     textAlign: "center",
+                    fontFamily: "Gluten-Regular",
                   }}
                 >
                   Thriller
@@ -50,7 +57,7 @@ export default function NowPlaying({ item }) {
           </View>
         </ImageBackground>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
@@ -64,6 +71,7 @@ const styles = StyleSheet.create({
   },
   info_container: {
     position: "absolute",
+    height: 200,
     borderRadius: 10,
     bottom: 0,
     left: 0,
@@ -72,12 +80,13 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   original_title: {
+    fontFamily: "Gluten-SemiBold",
     color: "white",
     fontSize: 25,
-    fontWeight: "bold",
+
     textAlign: "left",
     marginLeft: 10,
-    marginTop: 120,
+    marginTop: 50,
   },
   genre_container: {
     flexDirection: "row",
@@ -94,9 +103,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   vote_average: {
+    fontFamily: "Gluten-Bold",
     color: "white",
     fontSize: 15,
-    fontWeight: "bold",
+
     textAlign: "left",
     marginLeft: 10,
   },
