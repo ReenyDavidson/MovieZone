@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
 import { useNavigationState } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -8,22 +8,23 @@ export default function NowPlayingDetailScreen() {
   console.log(item);
   return (
     <View style={styles.container}>
-      <Image
+      <ImageBackground
         style={{
           width: "100%",
-          height: "50%",
-          borderRadius: 10,
+          height: "60%",
         }}
-        source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}
-      />
-      <LinearGradient colors={["transparent", "#000", "#fff"]} style={styles.gradient}>
-        <View style={styles.info_container}>
-          <Text style={styles.original_title}>{item.original_title}</Text>
-          <View style={styles.vote_container}>
-            <Text style={styles.vote_average}>{item.vote_average}/10</Text>
+        imageStyle={{ resizeMode: "contain", top: -15 }}
+        source={{ uri: `https://image.tmdb.org/t/p/w500${item.backdrop_path}` }}
+      >
+        <LinearGradient colors={["transparent", "rgb(255,255,255)"]} style={styles.gradient}>
+          <View style={styles.info_container}>
+            <Image
+              source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}
+              style={styles.poster}
+            />
           </View>
-        </View>
-      </LinearGradient>
+        </LinearGradient>
+      </ImageBackground>
     </View>
   );
 }
@@ -35,9 +36,16 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   gradient: {
-    flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5,
+    height: "60%",
+    top: -20,
+  },
+  poster: {
+    alignSelf: "center",
+    width: "50%",
+    height: "100%",
+    resizeMode: "contain",
+    margin: 70,
+    borderRadius: 10,
+    position: "relative",
   },
 });
