@@ -1,7 +1,7 @@
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function NowPlaying({ item }) {
-  console.log(item);
   return (
     <View style={styles.container}>
       <View
@@ -11,13 +11,43 @@ export default function NowPlaying({ item }) {
         }}
       >
         <ImageBackground
+          resizeMode="cover"
+          resizeMethod="resize"
           source={{
             uri: `https://image.tmdb.org/t/p/w500${item.backdrop_path}`,
           }}
           style={styles.image}
-          imageStyle={{ borderRadius: 10 }}
+          imageStyle={{ borderRadius: 10, backfaceVisibility: "hidden" }}
         >
-          <Text>{item.title}</Text>
+          <View style={styles.info_container}>
+            <Text style={styles.original_title}>{item.original_title}</Text>
+            <View style={styles.vote_container}>
+              <Ionicons name="star" size={14} color="gold" />
+              <Text style={styles.vote_average}>{item.vote_average}/10</Text>
+            </View>
+            <View style={styles.genre_container}>
+              <View style={styles.genres}>
+                <Text
+                  style={{
+                    color: "#fff",
+                    textAlign: "center",
+                  }}
+                >
+                  Action
+                </Text>
+              </View>
+              <View style={styles.genres}>
+                <Text
+                  style={{
+                    color: "#fff",
+                    textAlign: "center",
+                  }}
+                >
+                  Thriller
+                </Text>
+              </View>
+            </View>
+          </View>
         </ImageBackground>
       </View>
     </View>
@@ -31,5 +61,48 @@ const styles = StyleSheet.create({
   image: {
     width: 350,
     height: 200,
+  },
+  info_container: {
+    position: "absolute",
+    borderRadius: 10,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    padding: 10,
+  },
+  original_title: {
+    color: "white",
+    fontSize: 25,
+    fontWeight: "bold",
+    textAlign: "left",
+    marginLeft: 10,
+    marginTop: 120,
+  },
+  genre_container: {
+    flexDirection: "row",
+  },
+  genres: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 10,
+    marginTop: 15,
+    width: 50,
+    height: 20,
+    borderColor: "#fff",
+    borderWidth: 1,
+    borderRadius: 50,
+  },
+  vote_average: {
+    color: "white",
+    fontSize: 15,
+    fontWeight: "bold",
+    textAlign: "left",
+    marginLeft: 10,
+  },
+  vote_container: {
+    flexDirection: "row",
+    marginLeft: 10,
+    marginTop: 15,
   },
 });

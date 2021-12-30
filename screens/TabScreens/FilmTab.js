@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import GetNowPlaying from "../../components/NowPlaying/GetNowPlaying";
 
 export default function FilmTab() {

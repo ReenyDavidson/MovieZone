@@ -29,13 +29,44 @@ export default function GetNowPlaying() {
   }
 
   return (
-    <FlatList
-      data={data.results}
-      horizontal={true}
-      renderItem={({ item }) => {
-        return <NowPlaying item={item} />;
-      }}
-      keyExtractor={(item) => item.id.toString()}
-    />
+    <View>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <Text
+          style={{
+            color: "#fff",
+            fontSize: 25,
+            fontWeight: "bold",
+            textAlign: "left",
+            margin: 15,
+          }}
+        >
+          Now Playing
+        </Text>
+        <Text
+          style={{
+            color: "#fff",
+            fontSize: 20,
+            textAlign: "right",
+            margin: 15,
+          }}
+        >
+          see more
+        </Text>
+      </View>
+      <FlatList
+        data={data.results}
+        showsHorizontalScrollIndicator={false}
+        horizontal={true}
+        renderItem={({ item }) => {
+          return <NowPlaying item={item} />;
+        }}
+        keyExtractor={(item) => item.id.toString()}
+      />
+    </View>
   );
 }
