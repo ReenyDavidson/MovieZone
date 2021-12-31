@@ -1,9 +1,20 @@
-import { View, Text, StyleSheet, Image, ImageBackground, ScrollView } from "react-native";
+import { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ImageBackground,
+  ScrollView,
+  Modal,
+  Pressable,
+} from "react-native";
 import { useNavigationState } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function NowPlayingDetailScreen() {
+  const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigationState((state) => state);
   const item = navigation.routes[navigation.routes.length - 1].params;
   console.log(item);
@@ -80,7 +91,51 @@ export default function NowPlayingDetailScreen() {
           <Text ellipsizeMode="tail" numberOfLines={2} style={styles.overview}>
             {item.overview}
           </Text>
+          <Pressable
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              borderColor: "#fff",
+              borderWidth: 1,
+              width: 100,
+              borderRadius: 50,
+              padding: 5,
+              marginTop: 10,
+            }}
+            onPress={() => setModalVisible(true)}
+          >
+            <Text style={styles.overview}>Read more</Text>
+          </Pressable>
         </View>
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(false);
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.overview}>{item.overview}</Text>
+              <Pressable
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+
+                  width: 100,
+                  borderRadius: 50,
+                  padding: 5,
+                  marginTop: 10,
+                }}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Ionicons name="ios-close" size={20} color="#fff" />
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
       </View>
     </ScrollView>
   );
@@ -157,5 +212,27 @@ const styles = StyleSheet.create({
     color: "#fff",
     letterSpacing: 0.8,
     lineHeight: 26,
+  },
+
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 70,
+  },
+  modalView: {
+    margin: 10,
+    backgroundColor: "rgb(15,15,15)",
+    borderRadius: 10,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });
