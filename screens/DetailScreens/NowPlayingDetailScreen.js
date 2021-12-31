@@ -97,14 +97,24 @@ export default function NowPlayingDetailScreen() {
               alignItems: "center",
               borderColor: "#fff",
               borderWidth: 1,
-              width: 100,
+              width: 90,
               borderRadius: 50,
               padding: 5,
               marginTop: 10,
             }}
             onPress={() => setModalVisible(true)}
           >
-            <Text style={styles.overview}>Read more</Text>
+            <Text
+              style={{
+                fontFamily: "Quicksand-Regular",
+                fontSize: 15,
+                color: "#fff",
+                letterSpacing: 0.8,
+                lineHeight: 26,
+              }}
+            >
+              Read more
+            </Text>
           </Pressable>
         </View>
         <Modal
@@ -118,7 +128,17 @@ export default function NowPlayingDetailScreen() {
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text style={styles.overview}>{item.overview}</Text>
+              <Text
+                style={{
+                  fontFamily: "Quicksand-Regular",
+                  fontSize: 15,
+                  color: "#Ecf3f9",
+                  letterSpacing: 0.8,
+                  lineHeight: 26,
+                }}
+              >
+                {item.overview}
+              </Text>
               <Pressable
                 style={{
                   justifyContent: "center",
@@ -208,7 +228,7 @@ const styles = StyleSheet.create({
   },
   overview: {
     fontFamily: "Quicksand-Regular",
-    fontSize: 18,
+    fontSize: 16,
     color: "#fff",
     letterSpacing: 0.8,
     lineHeight: 26,
@@ -221,7 +241,10 @@ const styles = StyleSheet.create({
     marginTop: 70,
   },
   modalView: {
+    justifyContent: "center",
+    alignItems: "center",
     margin: 10,
+    height: "50%",
     backgroundColor: "rgb(15,15,15)",
     borderRadius: 10,
     padding: 35,
