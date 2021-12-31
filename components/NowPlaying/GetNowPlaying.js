@@ -38,7 +38,7 @@ export default function GetNowPlaying() {
       >
         <Text
           style={{
-            fontFamily: "Gluten-SemiBold",
+            fontFamily: "Quicksand-SemiBold",
             color: "#fff",
             fontSize: 25,
 
@@ -50,7 +50,7 @@ export default function GetNowPlaying() {
         </Text>
         <Text
           style={{
-            fontFamily: "Gluten-Light",
+            fontFamily: "Quicksand-Light",
             color: "#fff",
             fontSize: 20,
             textAlign: "right",

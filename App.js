@@ -9,11 +9,11 @@ const queryClient = new QueryClient();
 
 export default function App() {
   let [fontsLoaded] = useFonts({
-    "Gluten-Regular": require("./assets/fonts/Gluten/static/Gluten-Regular.ttf"),
-    "Gluten-Bold": require("./assets/fonts/Gluten/static/Gluten-Bold.ttf"),
-    "Gluten-Medium": require("./assets/fonts/Gluten/static/Gluten-Medium.ttf"),
-    "Gluten-Light": require("./assets/fonts/Gluten/static/Gluten-Light.ttf"),
-    "Gluten-SemiBold": require("./assets/fonts/Gluten/static/Gluten-SemiBold.ttf"),
+    "Quicksand-Regular": require("./assets/fonts/Quicksand/static/Quicksand-Regular.ttf"),
+    "Quicksand-Bold": require("./assets/fonts/Quicksand/static/Quicksand-Bold.ttf"),
+    "Quicksand-Medium": require("./assets/fonts/Quicksand/static/Quicksand-Medium.ttf"),
+    "Quicksand-Light": require("./assets/fonts/Quicksand/static/Quicksand-Light.ttf"),
+    "Quicksand-SemiBold": require("./assets/fonts/Quicksand/static/Quicksand-SemiBold.ttf"),
   });
 
   if (!fontsLoaded) {

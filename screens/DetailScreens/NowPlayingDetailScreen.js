@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
+import { View, Text, StyleSheet, Image, ImageBackground, ScrollView } from "react-native";
 import { useNavigationState } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
@@ -8,7 +8,12 @@ export default function NowPlayingDetailScreen() {
   const item = navigation.routes[navigation.routes.length - 1].params;
   console.log(item);
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={{
+        flexGrow: 1,
+      }}
+    >
       <ImageBackground
         style={{
           width: "100%",
@@ -17,7 +22,7 @@ export default function NowPlayingDetailScreen() {
         imageStyle={{ resizeMode: "contain", top: -15 }}
         source={{ uri: `https://image.tmdb.org/t/p/w500${item.backdrop_path}` }}
       >
-        <LinearGradient colors={["transparent", "#0f0f0f"]} style={styles.gradient}>
+        <LinearGradient colors={["rgba(15,15,15,0.5)", "#0f0f0f"]} style={styles.gradient}>
           <View>
             <Image
               source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}
@@ -35,7 +40,7 @@ export default function NowPlayingDetailScreen() {
               style={{
                 color: "#fff",
                 textAlign: "center",
-                fontFamily: "Gluten-Regular",
+                fontFamily: "Quicksand-Regular",
               }}
             >
               Action
@@ -46,7 +51,7 @@ export default function NowPlayingDetailScreen() {
               style={{
                 color: "#fff",
                 textAlign: "center",
-                fontFamily: "Gluten-Regular",
+                fontFamily: "Quicksand-Regular",
               }}
             >
               Thriller
@@ -59,11 +64,25 @@ export default function NowPlayingDetailScreen() {
             {item.vote_average}/10 ({item.vote_count})
           </Text>
         </View>
-        <View>
-          <Text style={styles.overview}>{item.overview}</Text>
+        <View style={styles.overview_container}>
+          <Text
+            style={{
+              fontFamily: "Quicksand-Bold",
+              color: "#e5e4e2",
+              fontSize: 20,
+              margin: 10,
+
+              textAlign: "left",
+            }}
+          >
+            Overview
+          </Text>
+          <Text ellipsizeMode="tail" numberOfLines={2} style={styles.overview}>
+            {item.overview}
+          </Text>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -75,7 +94,7 @@ const styles = StyleSheet.create({
   },
   gradient: {
     height: "60%",
-    top: -20,
+    top: -25,
   },
   poster: {
     alignSelf: "center",
@@ -90,10 +109,9 @@ const styles = StyleSheet.create({
   info_container: {
     padding: 10,
     borderRadius: 10,
-    top: -20,
   },
   original_title: {
-    fontFamily: "Gluten-SemiBold",
+    fontFamily: "Quicksand-SemiBold",
     fontSize: 30,
     color: "#fff",
     textAlign: "center",
@@ -121,10 +139,23 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   vote_average: {
-    fontFamily: "Gluten-Regular",
+    fontFamily: "Quicksand-Regular",
     fontSize: 15,
     color: "#fff",
     textAlign: "center",
     marginLeft: 10,
+  },
+  overview_container: {
+    flexDirection: "column",
+    width: "100%",
+    justifyContent: "center",
+    margin: 10,
+  },
+  overview: {
+    fontFamily: "Quicksand-Regular",
+    fontSize: 18,
+    color: "#fff",
+    letterSpacing: 0.8,
+    lineHeight: 26,
   },
 });

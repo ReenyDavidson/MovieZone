@@ -36,7 +36,7 @@ export default function NowPlaying({ item }) {
                   style={{
                     color: "#fff",
                     textAlign: "center",
-                    fontFamily: "Gluten-Regular",
+                    fontFamily: "Quicksand-Regular",
                   }}
                 >
                   Action
@@ -47,7 +47,7 @@ export default function NowPlaying({ item }) {
                   style={{
                     color: "#fff",
                     textAlign: "center",
-                    fontFamily: "Gluten-Regular",
+                    fontFamily: "Quicksand-Regular",
                   }}
                 >
                   Thriller
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   original_title: {
-    fontFamily: "Gluten-SemiBold",
+    fontFamily: "Quicksand-SemiBold",
     color: "white",
     fontSize: 25,
 
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   vote_average: {
-    fontFamily: "Gluten-Bold",
+    fontFamily: "Quicksand-Bold",
     color: "white",
     fontSize: 15,
 
