@@ -82,7 +82,6 @@ export default function NowPlayingDetailScreen() {
               color: "#e5e4e2",
               fontSize: 20,
               margin: 10,
-
               textAlign: "left",
             }}
           >
@@ -143,7 +142,6 @@ export default function NowPlayingDetailScreen() {
                 style={{
                   justifyContent: "center",
                   alignItems: "center",
-
                   width: 100,
                   borderRadius: 50,
                   padding: 5,
