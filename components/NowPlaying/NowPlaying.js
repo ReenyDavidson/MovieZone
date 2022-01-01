@@ -26,6 +26,7 @@ export default function NowPlaying({ item }) {
         >
           <View style={styles.info_container}>
             <Text style={styles.original_title}>{item.original_title}</Text>
+            <Text style={styles.release_date}>{item.release_date.slice(0, 4)}</Text>
             <View style={styles.vote_container}>
               <Ionicons name="star" size={14} color="gold" />
               <Text style={styles.vote_average}>{item.vote_average}/10</Text>
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginLeft: 10,
-    marginTop: 15,
+    marginTop: 10,
     width: 50,
     height: 20,
     borderColor: "#fff",
@@ -106,13 +107,19 @@ const styles = StyleSheet.create({
     fontFamily: "Quicksand-Bold",
     color: "white",
     fontSize: 15,
-
     textAlign: "left",
-    marginLeft: 10,
+    marginLeft: 7,
   },
   vote_container: {
     flexDirection: "row",
     marginLeft: 10,
     marginTop: 15,
+  },
+  release_date: {
+    fontFamily: "Quicksand-SemiBold",
+    color: "white",
+    fontSize: 16,
+    textAlign: "left",
+    marginLeft: 10,
   },
 });

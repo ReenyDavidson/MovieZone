@@ -29,7 +29,12 @@ export default function GetNowPlaying() {
   }
 
   return (
-    <View>
+    <View
+      style={{
+        flex: 1,
+        top: 25,
+      }}
+    >
       <View
         style={{
           flexDirection: "row",
@@ -57,7 +62,7 @@ export default function GetNowPlaying() {
             margin: 15,
           }}
         >
-          see more
+          see all
         </Text>
       </View>
       <FlatList

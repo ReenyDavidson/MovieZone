@@ -44,7 +44,7 @@ export default function NowPlayingDetailScreen() {
       </ImageBackground>
       <View style={styles.info_container}>
         <Text style={styles.original_title}>{item.original_title}</Text>
-
+        <Text style={styles.release_date}>{item.release_date}</Text>
         <View style={styles.genre_container}>
           <View style={styles.genres}>
             <Text
@@ -117,7 +117,7 @@ export default function NowPlayingDetailScreen() {
           </Pressable>
         </View>
         <Modal
-          animationType="fade"
+          animationType="slide"
           transparent={true}
           visible={modalVisible}
           onRequestClose={() => {
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     width: "50%",
     height: "100%",
     resizeMode: "contain",
-    margin: 70,
+    margin: 65,
     borderRadius: 10,
     position: "relative",
   },
@@ -182,6 +182,8 @@ const styles = StyleSheet.create({
   info_container: {
     padding: 10,
     borderRadius: 10,
+
+    top: -20,
   },
   original_title: {
     fontFamily: "Quicksand-SemiBold",
@@ -236,15 +238,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 70,
   },
   modalView: {
     justifyContent: "center",
     alignItems: "center",
     margin: 10,
     height: "50%",
+    position: "absolute",
+    bottom: -5,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderWidth: 1,
+
+    width: "100%",
     backgroundColor: "rgb(15,15,15)",
-    borderRadius: 10,
     padding: 35,
     alignItems: "center",
     shadowColor: "#000",
@@ -255,5 +262,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  release_date: {
+    fontFamily: "Quicksand-SemiBold",
+    color: "white",
+    fontSize: 16,
+    textAlign: "left",
+    alignSelf: "center",
+    color: "grey",
   },
 });
