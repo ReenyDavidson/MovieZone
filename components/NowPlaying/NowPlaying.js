@@ -2,8 +2,11 @@ import { View, Text, ImageBackground, StyleSheet, Pressable } from "react-native
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
+import { useQuery } from "react-query";
+
 export default function NowPlaying({ item }) {
   const navigation = useNavigation();
+
   return (
     <Pressable
       style={styles.container}
@@ -30,30 +33,6 @@ export default function NowPlaying({ item }) {
             <View style={styles.vote_container}>
               <Ionicons name="star" size={14} color="gold" />
               <Text style={styles.vote_average}>{item.vote_average}/10</Text>
-            </View>
-            <View style={styles.genre_container}>
-              <View style={styles.genres}>
-                <Text
-                  style={{
-                    color: "#fff",
-                    textAlign: "center",
-                    fontFamily: "Quicksand-Regular",
-                  }}
-                >
-                  Action
-                </Text>
-              </View>
-              <View style={styles.genres}>
-                <Text
-                  style={{
-                    color: "#fff",
-                    textAlign: "center",
-                    fontFamily: "Quicksand-Regular",
-                  }}
-                >
-                  Thriller
-                </Text>
-              </View>
             </View>
           </View>
         </ImageBackground>
@@ -89,20 +68,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginTop: 50,
   },
-  genre_container: {
-    flexDirection: "row",
-  },
-  genres: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: 10,
-    marginTop: 10,
-    width: 50,
-    height: 20,
-    borderColor: "#fff",
-    borderWidth: 1,
-    borderRadius: 50,
-  },
+
   vote_average: {
     fontFamily: "Quicksand-Bold",
     color: "white",
@@ -114,6 +80,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginLeft: 10,
     marginTop: 15,
+    borderColor: "#3f51b5",
+    backgroundColor: "#3f51b5",
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderRadius: 50,
+    maxWidth: 70,
   },
   release_date: {
     fontFamily: "Quicksand-SemiBold",

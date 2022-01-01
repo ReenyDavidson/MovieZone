@@ -12,6 +12,6 @@ export default function FilmTab() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#3f51b5",
+    backgroundColor: "#0f0f0f",
   },
 });

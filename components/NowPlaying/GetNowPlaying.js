@@ -68,7 +68,7 @@ export default function GetNowPlaying() {
       <FlatList
         data={data.results}
         showsHorizontalScrollIndicator={false}
-        decelerationRate={0}
+        decelerationRate="fast"
         bounces={false}
         horizontal={true}
         renderItem={({ item }) => {

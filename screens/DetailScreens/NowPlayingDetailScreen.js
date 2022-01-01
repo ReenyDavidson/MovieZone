@@ -12,12 +12,43 @@ import {
 import { useNavigationState } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { useQuery } from "react-query";
+import axios from "axios";
+
+const queryKey = "nowPlayingGenre";
+
+const getGenre = async () => {
+  const { data } = await axios.get(
+    "https://api.themoviedb.org/3/genre/movie/list?api_key=e1e7f6d071160e897c09a99f4983b865&language=en-US",
+  );
+
+  return data;
+};
 
 export default function NowPlayingDetailScreen() {
+  const { data } = useQuery(queryKey, getGenre);
   const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigationState((state) => state);
   const item = navigation.routes[navigation.routes.length - 1].params;
-  console.log(item);
+
+  const genData1 = data.genres.map((genre) => {
+    if (genre.id === item.genre_ids[0]) {
+      return genre.name;
+    }
+  });
+
+  const genData2 = data.genres.map((genre) => {
+    if (genre.id === item.genre_ids[1]) {
+      return genre.name;
+    }
+  });
+
+  const genData3 = data.genres.map((genre) => {
+    if (genre.id === item.genre_ids[2]) {
+      return genre.name;
+    }
+  });
+
   return (
     <ScrollView
       style={styles.container}
@@ -45,6 +76,7 @@ export default function NowPlayingDetailScreen() {
       <View style={styles.info_container}>
         <Text style={styles.original_title}>{item.original_title}</Text>
         <Text style={styles.release_date}>{item.release_date}</Text>
+
         <View style={styles.genre_container}>
           <View style={styles.genres}>
             <Text
@@ -54,7 +86,7 @@ export default function NowPlayingDetailScreen() {
                 fontFamily: "Quicksand-Regular",
               }}
             >
-              Action
+              {genData1}
             </Text>
           </View>
           <View style={styles.genres}>
@@ -65,9 +97,22 @@ export default function NowPlayingDetailScreen() {
                 fontFamily: "Quicksand-Regular",
               }}
             >
-              Thriller
+              {genData2}
             </Text>
           </View>
+          {item.genre_ids.length === 3 ? (
+            <View style={styles.genres}>
+              <Text
+                style={{
+                  color: "#fff",
+                  textAlign: "center",
+                  fontFamily: "Quicksand-Regular",
+                }}
+              >
+                {genData3}
+              </Text>
+            </View>
+          ) : null}
         </View>
         <View style={styles.vote_container}>
           <Ionicons name="star" size={14} color="gold" />
@@ -203,12 +248,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   genres: {
-    justifyContent: "center",
-    alignItems: "center",
     marginLeft: 10,
     marginTop: 15,
-    width: 50,
-    height: 20,
+    padding: 6,
+    minWidth: 70,
     borderColor: "#fff",
     borderWidth: 1,
     borderRadius: 50,
