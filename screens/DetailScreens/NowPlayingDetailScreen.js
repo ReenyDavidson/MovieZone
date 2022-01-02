@@ -31,21 +31,23 @@ export default function NowPlayingDetailScreen() {
   const navigation = useNavigationState((state) => state);
   const item = navigation.routes[navigation.routes.length - 1].params;
 
-  const genData1 = data.genres.map((genre) => {
-    if (genre.id === item.genre_ids[0]) {
-      return genre.name;
+  console.log(data);
+
+  const genre_one = data.genres.map((gen) => {
+    if (gen.id === item.genre_ids[0]) {
+      return gen.name;
     }
   });
 
-  const genData2 = data.genres.map((genre) => {
-    if (genre.id === item.genre_ids[1]) {
-      return genre.name;
+  const genre_two = data.genres.map((gen) => {
+    if (gen.id === item.genre_ids[1]) {
+      return gen.name;
     }
   });
 
-  const genData3 = data.genres.map((genre) => {
-    if (genre.id === item.genre_ids[2]) {
-      return genre.name;
+  const genre_three = data.genres.map((gen) => {
+    if (gen.id === item.genre_ids[2]) {
+      return gen.name;
     }
   });
 
@@ -86,7 +88,7 @@ export default function NowPlayingDetailScreen() {
                 fontFamily: "Quicksand-Regular",
               }}
             >
-              {genData1}
+              {genre_one}
             </Text>
           </View>
           <View style={styles.genres}>
@@ -97,7 +99,7 @@ export default function NowPlayingDetailScreen() {
                 fontFamily: "Quicksand-Regular",
               }}
             >
-              {genData2}
+              {genre_two}
             </Text>
           </View>
           {item.genre_ids.length === 3 ? (
@@ -109,7 +111,7 @@ export default function NowPlayingDetailScreen() {
                   fontFamily: "Quicksand-Regular",
                 }}
               >
-                {genData3}
+                {genre_three}
               </Text>
             </View>
           ) : null}
@@ -124,7 +126,7 @@ export default function NowPlayingDetailScreen() {
           <Text
             style={{
               fontFamily: "Quicksand-Bold",
-              color: "#e5e4e2",
+              color: "#3f51b5",
               fontSize: 20,
               margin: 10,
               textAlign: "left",
@@ -219,9 +221,8 @@ const styles = StyleSheet.create({
     width: "50%",
     height: "100%",
     resizeMode: "contain",
-    margin: 65,
+    margin: 70,
     borderRadius: 10,
-    position: "relative",
   },
 
   info_container: {
@@ -232,7 +233,7 @@ const styles = StyleSheet.create({
   },
   original_title: {
     fontFamily: "Quicksand-SemiBold",
-    fontSize: 30,
+    fontSize: 25,
     color: "#fff",
     textAlign: "center",
   },
