@@ -17,37 +17,34 @@ import axios from "axios";
 
 const queryKey = "nowPlayingGenre";
 
-const getGenre = async () => {
-  const { data } = await axios.get(
-    "https://api.themoviedb.org/3/genre/movie/list?api_key=e1e7f6d071160e897c09a99f4983b865&language=en-US",
-  );
-
-  return data;
-};
-
 export default function NowPlayingDetailScreen() {
-  const { data } = useQuery(queryKey, getGenre);
   const [modalVisible, setModalVisible] = useState(false);
+  const { data } = useQuery(queryKey, () => {
+    return axios.get(
+      "https://api.themoviedb.org/3/genre/movie/list?api_key=e1e7f6d071160e897c09a99f4983b865&language=en-US",
+    );
+  });
+
+  const genres = data.data.genres;
+
   const navigation = useNavigationState((state) => state);
   const item = navigation.routes[navigation.routes.length - 1].params;
 
-  console.log(data);
-
-  const genre_one = data.genres.map((gen) => {
-    if (gen.id === item.genre_ids[0]) {
-      return gen.name;
+  const genre_one = genres.map((genre) => {
+    if (genre.id === item.genre_ids[0]) {
+      return genre.name;
     }
   });
 
-  const genre_two = data.genres.map((gen) => {
-    if (gen.id === item.genre_ids[1]) {
-      return gen.name;
+  const genre_two = genres.map((genre) => {
+    if (genre.id === item.genre_ids[1]) {
+      return genre.name;
     }
   });
 
-  const genre_three = data.genres.map((gen) => {
-    if (gen.id === item.genre_ids[2]) {
-      return gen.name;
+  const genre_three = genres.map((genre) => {
+    if (genre.id === item.genre_ids[2]) {
+      return genre.name;
     }
   });
 
