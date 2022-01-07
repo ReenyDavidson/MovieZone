@@ -1,4 +1,4 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -31,12 +31,32 @@ export default function () {
         tabBarLabelPosition: "beside-icon",
         tabBarShowLabel: false,
         tabBarStyle: {
-          backgroundColor: "#000",
+          backgroundColor: "#0f0f0f",
           borderTopColor: "#000",
+        },
+        headerStyle: {
+          backgroundColor: "#0f0f0f",
         },
       })}
     >
-      <Tab.Screen name="Film" component={FilmTab} />
+      <Tab.Screen
+        name="Film"
+        component={FilmTab}
+        options={{
+          headerTitle: () => (
+            <Text
+              style={{
+                fontSize: 25,
+
+                color: "#fff",
+                fontFamily: "Quicksand-Bold",
+              }}
+            >
+              Film
+            </Text>
+          ),
+        }}
+      />
 
       <Tab.Screen name="TV" component={TVTab} />
     </Tab.Navigator>

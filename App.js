@@ -24,7 +24,7 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <View style={styles.container}>
         <RootNavigation />
-        <StatusBar style="auto" />
+        <StatusBar style="light" backgroundColor="#0f0f0f" />
       </View>
     </QueryClientProvider>
   );

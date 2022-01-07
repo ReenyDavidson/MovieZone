@@ -1,10 +1,12 @@
 import { StyleSheet, View, Text } from "react-native";
 import GetNowPlaying from "../../components/NowPlaying/GetNowPlaying";
+import GetPopular from "../../components/Popular/GetPopular";
 
 export default function FilmTab() {
   return (
     <View style={styles.container}>
       <GetNowPlaying />
+      <GetPopular />
     </View>
   );
 }
