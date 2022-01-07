@@ -1,13 +1,15 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import GetNowPlaying from "../../components/NowPlaying/GetNowPlaying";
 import GetPopular from "../../components/Popular/GetPopular";
+import GetTrending from "../../components/Trending/GetTrending";
 
 export default function FilmTab() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <GetNowPlaying />
       <GetPopular />
-    </View>
+      <GetTrending />
+    </ScrollView>
   );
 }
 

@@ -2,7 +2,7 @@ import { View, Text, ImageBackground, StyleSheet, Pressable } from "react-native
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function NowPlaying({ item }) {
+export default function Trending({ item }) {
   const navigation = useNavigation();
 
   return (
@@ -17,10 +17,10 @@ export default function NowPlaying({ item }) {
         }}
       >
         <ImageBackground
-          resizeMode="cover"
+          resizeMode="contain"
           resizeMethod="resize"
           source={{
-            uri: `https://image.tmdb.org/t/p/w500${item.backdrop_path}`,
+            uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
           }}
           style={styles.image}
           imageStyle={{ borderRadius: 10, backfaceVisibility: "hidden" }}
@@ -44,11 +44,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    width: 350,
+    width: 130,
     height: 200,
   },
   info_container: {
     position: "absolute",
+    width: 130,
     height: 200,
     borderRadius: 10,
     bottom: 0,
@@ -60,8 +61,7 @@ const styles = StyleSheet.create({
   original_title: {
     fontFamily: "Quicksand-SemiBold",
     color: "white",
-    fontSize: 25,
-
+    fontSize: 15,
     textAlign: "left",
     marginLeft: 10,
     marginTop: 50,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   vote_average: {
     fontFamily: "Quicksand-Bold",
     color: "white",
-    fontSize: 15,
+    fontSize: 11,
     textAlign: "left",
     marginLeft: 7,
   },
@@ -84,12 +84,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderWidth: 1,
     borderRadius: 50,
-    maxWidth: 70,
+    maxWidth: 55,
   },
   release_date: {
     fontFamily: "Quicksand-SemiBold",
-    color: "white",
-    fontSize: 16,
+    color: "#ff0",
+    fontSize: 11,
     textAlign: "left",
     marginLeft: 10,
   },
