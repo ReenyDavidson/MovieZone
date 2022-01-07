@@ -3,7 +3,7 @@ import axios from "axios";
 import { View, Text, FlatList } from "react-native";
 import Trending from "./Trending";
 
-const queryKey = "nowPlaying";
+const queryKey = "trending";
 
 const getData = async () => {
   const { data } = await axios.get(
