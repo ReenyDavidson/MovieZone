@@ -26,29 +26,19 @@ export default function () {
           // You can return the Icon component here
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "#000",
+        tabBarActiveTintColor: "#fff",
         tabBarInactiveTintColor: "#979797",
         tabBarLabelPosition: "beside-icon",
-        tabBarLabelStyle: {
-          fontSize: 14,
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          backgroundColor: "#000",
+          borderTopColor: "#000",
         },
       })}
     >
-      <Tab.Screen
-        name="Film"
-        component={FilmTab}
-        options={{
-          tabBarLabel: "Films",
-        }}
-      />
+      <Tab.Screen name="Film" component={FilmTab} />
 
-      <Tab.Screen
-        name="TV"
-        component={TVTab}
-        options={{
-          tabBarLabel: "TV Shows",
-        }}
-      />
+      <Tab.Screen name="TV" component={TVTab} />
     </Tab.Navigator>
   );
 }

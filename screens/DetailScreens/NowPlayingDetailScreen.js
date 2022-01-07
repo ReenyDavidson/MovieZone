@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import {
   View,
   Text,
@@ -9,20 +9,45 @@ import {
   Modal,
   Pressable,
 } from "react-native";
-import { useNavigationState } from "@react-navigation/native";
+import { useNavigationState, useFocusEffect } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import { useQuery } from "react-query";
+import { useQuery, focusManager } from "react-query";
+import useAppState from "react-native-appstate-hook";
 import axios from "axios";
 
 const queryKey = "nowPlayingGenre";
 
+const getGenre = async () => {
+  const { data } = await axios.get(
+    "https://api.themoviedb.org/3/genre/movie/list?api_key=e1e7f6d071160e897c09a99f4983b865&language=en-US",
+  );
+
+  return data;
+};
+
 export default function NowPlayingDetailScreen() {
   const [modalVisible, setModalVisible] = useState(false);
-  const { data } = useQuery(queryKey, () => {
-    return axios.get(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=e1e7f6d071160e897c09a99f4983b865&language=en-US",
-    );
+  const data = useQuery(queryKey, getGenre);
+
+  useFocusEffect(
+    useCallback(() => {
+      if (enabledRef.current) {
+        getGenre();
+      } else {
+        enabledRef.current = true;
+      }
+    }, [getGenre]),
+  );
+
+  function onAppStateChange(data) {
+    if (Platform.OS !== "web") {
+      focusManager.setFocused(data === "active");
+    }
+  }
+
+  useAppState({
+    onChange: onAppStateChange,
   });
 
   const genres = data.data.genres;
