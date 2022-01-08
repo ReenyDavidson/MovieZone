@@ -13,20 +13,22 @@ export default function Trending({ item }) {
       <View
         style={{
           margin: 5,
-          padding: 10,
+          padding: 5,
         }}
       >
         <ImageBackground
-          resizeMode="contain"
+          resizeMode="cover"
           resizeMethod="resize"
           source={{
-            uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+            uri: `https://image.tmdb.org/t/p/w500${item.backdrop_path}`,
           }}
           style={styles.image}
           imageStyle={{ borderRadius: 10, backfaceVisibility: "hidden" }}
         >
           <View style={styles.info_container}>
-            <Text style={styles.original_title}>{item.original_title}</Text>
+            <Text style={styles.original_title}>
+              {item.original_title ? item.original_title : item.title}
+            </Text>
             {/* <Text style={styles.release_date}>{item.release_date.slice(0, 4)}</Text> */}
             <View style={styles.vote_container}>
               <Ionicons name="star" size={14} color="gold" />
@@ -44,12 +46,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    width: 130,
+    width: 210,
     height: 200,
   },
   info_container: {
     position: "absolute",
-    width: 130,
+    width: 210,
     height: 200,
     borderRadius: 10,
     bottom: 0,
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
   original_title: {
     fontFamily: "Quicksand-SemiBold",
     color: "white",
-    fontSize: 15,
+    fontSize: 17,
     textAlign: "left",
     marginLeft: 10,
     marginTop: 50,

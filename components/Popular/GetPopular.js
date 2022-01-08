@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 import { View, Text, FlatList } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import Popular from "./Popular";
 
 const queryKey = "popular";
@@ -32,38 +33,26 @@ export default function GetPopular() {
     <View
       style={{
         flex: 1,
-        top: 5,
       }}
     >
       <View
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
+          margin: 15,
         }}
       >
         <Text
           style={{
             fontFamily: "Quicksand-SemiBold",
             color: "#fff",
-            fontSize: 25,
-
+            fontSize: 20,
             textAlign: "left",
-            margin: 15,
           }}
         >
           Popular Movies
         </Text>
-        <Text
-          style={{
-            fontFamily: "Quicksand-Light",
-            color: "#fff",
-            fontSize: 20,
-            textAlign: "right",
-            margin: 15,
-          }}
-        >
-          see all
-        </Text>
+        <Ionicons name="ios-arrow-forward" size={20} color="#fff" />
       </View>
       <FlatList
         data={data.results}

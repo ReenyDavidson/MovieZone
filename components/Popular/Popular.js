@@ -13,7 +13,7 @@ export default function Popular({ item }) {
       <View
         style={{
           margin: 5,
-          padding: 10,
+          padding: 5,
         }}
       >
         <ImageBackground
