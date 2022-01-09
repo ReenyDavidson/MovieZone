@@ -1,10 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-export default function PopularDetailScreen() {
+const PopularDetailScreen = () => {
   return (
     <View>
-      <Text>Hello</Text>
+      <Text>Heloo</Text>
     </View>
   );
-}
+};
+
+export default PopularDetailScreen;

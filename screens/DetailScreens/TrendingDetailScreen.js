@@ -1,10 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-export default function TrendingDetailScreen() {
+const TrendingDetailScreen = () => {
   return (
     <View>
-      <Text>Hello</Text>
+      <Text>hello</Text>
     </View>
   );
-}
+};
+
+export default TrendingDetailScreen;
