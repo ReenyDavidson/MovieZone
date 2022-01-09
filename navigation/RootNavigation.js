@@ -23,7 +23,7 @@ const Stack = createNativeStackNavigator();
 
 function Screens() {
   return (
-    <Stack.Navigator initialRouteName="Tabs">
+    <Stack.Navigator>
       <Stack.Screen name="Tabs" component={Tabs} />
       <Stack.Screen name="NowPlayingDetailScreen" component={NowPlayingDetailScreen} />
       <Stack.Screen name="PopularDetailScreen" component={PopularDetailScreen} />
