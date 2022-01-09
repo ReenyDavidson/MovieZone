@@ -6,10 +6,7 @@ export default function Trending({ item }) {
   const navigation = useNavigation();
 
   return (
-    <Pressable
-      style={styles.container}
-      onPress={() => navigation.navigate("NowPlayingDetailScreen", item)}
-    >
+    <Pressable style={styles.container} onPress={() => navigation.navigate("TrendingDetailScreen")}>
       <View
         style={{
           margin: 5,
