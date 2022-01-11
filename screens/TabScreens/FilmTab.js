@@ -1,4 +1,4 @@
-import { StyleSheet, View, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import GetNowPlaying from "../../components/NowPlaying/GetNowPlaying";
 import GetPopular from "../../components/Popular/GetPopular";
 import GetTrending from "../../components/Trending/GetTrending";
