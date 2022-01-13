@@ -2,6 +2,7 @@ import { StyleSheet, ScrollView } from "react-native";
 import GetNowPlaying from "../../components/NowPlaying/GetNowPlaying";
 import GetPopular from "../../components/Popular/GetPopular";
 import GetTrending from "../../components/Trending/GetTrending";
+import GetUpcoming from "../../components/Upcoming/GetUpcoming";
 
 export default function FilmTab() {
   return (
@@ -9,6 +10,7 @@ export default function FilmTab() {
       <GetNowPlaying />
       <GetPopular />
       <GetTrending />
+      <GetUpcoming />
     </ScrollView>
   );
 }
