@@ -11,6 +11,9 @@ export default function Upcoming({ item }) {
         style={{
           margin: 5,
           padding: 5,
+          flexDirection: "row",
+
+          backgroundColor: "red",
         }}
       >
         <ImageBackground
@@ -21,16 +24,15 @@ export default function Upcoming({ item }) {
           }}
           style={styles.image}
           imageStyle={{ borderRadius: 10, backfaceVisibility: "hidden" }}
-        >
-          <View style={styles.info_container}>
-            <Text style={styles.original_title}>{item.original_title}</Text>
-            {/* <Text style={styles.release_date}>{item.release_date.slice(0, 4)}</Text> */}
-            <View style={styles.vote_container}>
-              <Ionicons name="star" size={14} color="gold" />
-              <Text style={styles.vote_average}>{item.vote_average}/10</Text>
-            </View>
+        ></ImageBackground>
+        <View style={styles.info_container}>
+          <Text style={styles.original_title}>{item.original_title}</Text>
+          {/* <Text style={styles.release_date}>{item.release_date.slice(0, 4)}</Text> */}
+          <View style={styles.vote_container}>
+            <Ionicons name="star" size={14} color="gold" />
+            <Text style={styles.vote_average}>{item.vote_average}/10</Text>
           </View>
-        </ImageBackground>
+        </View>
       </View>
     </Pressable>
   );
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
     height: 200,
   },
   info_container: {
-    position: "absolute",
+    position: "relative",
     width: 130,
     height: 200,
     borderRadius: 10,
@@ -53,6 +55,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: "rgba(0,0,0,0.5)",
+    marginHorizontal: 5,
     padding: 10,
   },
   original_title: {
