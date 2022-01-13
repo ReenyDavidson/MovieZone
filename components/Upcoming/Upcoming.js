@@ -12,8 +12,6 @@ export default function Upcoming({ item }) {
           margin: 5,
           padding: 5,
           flexDirection: "row",
-
-          backgroundColor: "red",
         }}
       >
         <ImageBackground
@@ -54,7 +52,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: "rgba(0,0,0,0.5)",
+
     marginHorizontal: 5,
     padding: 10,
   },
