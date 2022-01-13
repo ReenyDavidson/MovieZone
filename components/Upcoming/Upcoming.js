@@ -15,7 +15,7 @@ export default function Upcoming({ item }) {
         }}
       >
         <ImageBackground
-          resizeMode="contain"
+          resizeMode="cover"
           resizeMethod="resize"
           source={{
             uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
@@ -25,7 +25,7 @@ export default function Upcoming({ item }) {
         ></ImageBackground>
         <View style={styles.info_container}>
           <Text style={styles.original_title}>{item.original_title}</Text>
-          {/* <Text style={styles.release_date}>{item.release_date.slice(0, 4)}</Text> */}
+          <Text style={styles.release_date}>{item.release_date.slice(0, 4)}</Text>
           <View style={styles.vote_container}>
             <Ionicons name="star" size={14} color="gold" />
             <Text style={styles.vote_average}>{item.vote_average}/10</Text>
@@ -41,34 +41,32 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    width: 130,
+    width: 160,
     height: 200,
   },
   info_container: {
     position: "relative",
-    width: 130,
+    width: 200,
     height: 200,
     borderRadius: 10,
     bottom: 0,
     left: 0,
     right: 0,
-
     marginHorizontal: 5,
     padding: 10,
   },
   original_title: {
     fontFamily: "Quicksand-SemiBold",
     color: "white",
-    fontSize: 15,
+    fontSize: 20,
     textAlign: "left",
     marginLeft: 10,
-    marginTop: 50,
   },
 
   vote_average: {
     fontFamily: "Quicksand-Bold",
     color: "white",
-    fontSize: 11,
+    fontSize: 15,
     textAlign: "left",
     marginLeft: 7,
   },
@@ -82,12 +80,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderWidth: 1,
     borderRadius: 50,
-    maxWidth: 55,
+    maxWidth: 60,
   },
   release_date: {
     fontFamily: "Quicksand-SemiBold",
     color: "#ff0",
-    fontSize: 11,
+    fontSize: 15,
     textAlign: "left",
     marginLeft: 10,
   },
