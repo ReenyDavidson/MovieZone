@@ -26,7 +26,7 @@ export default function Trending({ item }) {
             <Text style={styles.original_title}>
               {item.original_title ? item.original_title : item.title}
             </Text>
-            {/* <Text style={styles.release_date}>{item.release_date.slice(0, 4)}</Text> */}
+            <Text style={styles.release_date}>{item.release_date.slice(0, 4)}</Text>
             <View style={styles.vote_container}>
               <Ionicons name="star" size={14} color="gold" />
               <Text style={styles.vote_average}>{item.vote_average}/10</Text>
