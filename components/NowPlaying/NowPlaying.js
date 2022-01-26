@@ -5,6 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 export default function NowPlaying({ item }) {
   const navigation = useNavigation();
 
+  const rlsdate = new Date(item.release_date).getFullYear();
+
   return (
     <Pressable
       style={styles.container}
@@ -27,7 +29,7 @@ export default function NowPlaying({ item }) {
         >
           <View style={styles.info_container}>
             <Text style={styles.original_title}>{item.original_title}</Text>
-
+            <Text style={styles.release_date}>{rlsdate}</Text>
             <View style={styles.vote_container}>
               <Ionicons name="star" size={14} color="gold" />
               <Text style={styles.vote_average}>{item.vote_average}/10</Text>
