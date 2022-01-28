@@ -12,66 +12,15 @@ import {
 import { useNavigationState, useFocusEffect } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import { useQuery, focusManager } from "react-query";
+
 import useAppState from "react-native-appstate-hook";
 import axios from "axios";
 
-const queryKey = "nowPlayingGenre";
-
-const getGenre = async () => {
-  const { data } = await axios.get(
-    "https://api.themoviedb.org/3/genre/movie/list?api_key=e1e7f6d071160e897c09a99f4983b865&language=en-US",
-  );
-
-  return data;
-};
-
 export default function NowPlayingDetailScreen() {
   const [modalVisible, setModalVisible] = useState(false);
-  const data = useQuery(queryKey, getGenre);
-
-  useFocusEffect(
-    useCallback(() => {
-      if (enabledRef.current) {
-        getGenre();
-      } else {
-        enabledRef.current = true;
-      }
-    }, [getGenre]),
-  );
-
-  function onAppStateChange(data) {
-    if (Platform.OS !== "web") {
-      focusManager.setFocused(data === "active");
-    }
-  }
-
-  useAppState({
-    onChange: onAppStateChange,
-  });
-
-  const genres = data.data.genres;
 
   const navigation = useNavigationState((state) => state);
   const item = navigation.routes[navigation.routes.length - 1].params;
-
-  const genre_one = genres.map((genre) => {
-    if (genre.id === item.genre_ids[0]) {
-      return genre.name;
-    }
-  });
-
-  const genre_two = genres.map((genre) => {
-    if (genre.id === item.genre_ids[1]) {
-      return genre.name;
-    }
-  });
-
-  const genre_three = genres.map((genre) => {
-    if (genre.id === item.genre_ids[2]) {
-      return genre.name;
-    }
-  });
 
   return (
     <ScrollView
@@ -110,7 +59,7 @@ export default function NowPlayingDetailScreen() {
                 fontFamily: "Quicksand-Regular",
               }}
             >
-              {genre_one}
+              Action
             </Text>
           </View>
           <View style={styles.genres}>
@@ -121,7 +70,7 @@ export default function NowPlayingDetailScreen() {
                 fontFamily: "Quicksand-Regular",
               }}
             >
-              {genre_two}
+              Comedy
             </Text>
           </View>
           {item.genre_ids.length === 3 ? (
@@ -133,7 +82,7 @@ export default function NowPlayingDetailScreen() {
                   fontFamily: "Quicksand-Regular",
                 }}
               >
-                {genre_three}
+                Romance
               </Text>
             </View>
           ) : null}
