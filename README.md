@@ -6,3 +6,5 @@ A Movie App built with the following tools
 3. React-Query
 4. Expo
 5. TMDB API
+
+
