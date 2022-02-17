@@ -85,7 +85,7 @@ export default function NowPlayingDetailScreen() {
           <View style={styles.genres}>
             <Text
               style={{
-                color: "#fff",
+                color: "#FFFFFF",
                 textAlign: "center",
                 fontFamily: "Quicksand-Regular",
               }}
@@ -96,7 +96,7 @@ export default function NowPlayingDetailScreen() {
           <View style={styles.genres}>
             <Text
               style={{
-                color: "#fff",
+                color: "#FFFFFF",
                 textAlign: "center",
                 fontFamily: "Quicksand-Regular",
               }}
@@ -108,7 +108,7 @@ export default function NowPlayingDetailScreen() {
             <View style={styles.genres}>
               <Text
                 style={{
-                  color: "#fff",
+                  color: "#FFFFFF",
                   textAlign: "center",
                   fontFamily: "Quicksand-Regular",
                 }}
@@ -143,7 +143,7 @@ export default function NowPlayingDetailScreen() {
             style={{
               justifyContent: "center",
               alignItems: "center",
-              borderColor: "#fff",
+              borderColor: "#FFFFFF",
               borderWidth: 1,
               width: 90,
               borderRadius: 50,
@@ -156,7 +156,7 @@ export default function NowPlayingDetailScreen() {
               style={{
                 fontFamily: "Quicksand-Regular",
                 fontSize: 15,
-                color: "#fff",
+                color: "#FFFFFF",
                 letterSpacing: 0.8,
                 lineHeight: 26,
               }}
@@ -198,7 +198,7 @@ export default function NowPlayingDetailScreen() {
                 }}
                 onPress={() => setModalVisible(!modalVisible)}
               >
-                <Ionicons name="ios-close" size={20} color="#fff" />
+                <Ionicons name="ios-close" size={20} color="#FFFFFF" />
               </Pressable>
             </View>
           </View>
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
   original_title: {
     fontFamily: "Quicksand-SemiBold",
     fontSize: 25,
-    color: "#fff",
+    color: "#FFFFFF",
     textAlign: "center",
   },
   vote_container: {
@@ -255,14 +255,14 @@ const styles = StyleSheet.create({
     marginTop: 15,
     padding: 6,
     minWidth: 70,
-    borderColor: "#fff",
+    borderColor: "#FFFFFF",
     borderWidth: 1,
     borderRadius: 50,
   },
   vote_average: {
     fontFamily: "Quicksand-Regular",
     fontSize: 15,
-    color: "#fff",
+    color: "#FFFFFF",
     textAlign: "center",
     marginLeft: 10,
   },
@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
   overview: {
     fontFamily: "Quicksand-Regular",
     fontSize: 16,
-    color: "#fff",
+    color: "#FFFFFF",
     letterSpacing: 0.8,
     lineHeight: 26,
   },
