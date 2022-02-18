@@ -315,6 +315,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "left",
     alignSelf: "center",
-    color: "grey",
+    color: "#808080",
   },
 });
