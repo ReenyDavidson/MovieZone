@@ -46,14 +46,14 @@ export default function GetNowPlaying() {
         <Text
           style={{
             fontFamily: "Quicksand-SemiBold",
-            color: "#fff",
+            color: "#FFFFFF",
             fontSize: 25,
             textAlign: "left",
           }}
         >
           Now Playing
         </Text>
-        <Ionicons name="ios-arrow-forward" size={20} color="#fff" />
+        <Ionicons name="ios-arrow-forward" size={20} color="#FFFFFF" />
       </View>
       <FlatList
         data={data.results}

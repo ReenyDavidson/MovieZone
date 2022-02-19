@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(15,15,15)",
     padding: 35,
     alignItems: "center",
-    shadowColor: "#000",
+    shadowColor: "#000000",
     shadowOffset: {
       width: 0,
       height: 2,
