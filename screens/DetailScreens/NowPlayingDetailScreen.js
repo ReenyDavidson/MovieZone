@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
   },
   release_date: {
     fontFamily: "Quicksand-SemiBold",
-    color: "white",
+    color: "#FFFFFF",
     fontSize: 16,
     textAlign: "left",
     alignSelf: "center",
