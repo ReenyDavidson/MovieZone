@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
     fontFamily: "Quicksand-SemiBold",
     color: "white",
     fontSize: 25,
-
     textAlign: "left",
     marginLeft: 10,
     marginTop: 50,
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
 
   vote_average: {
     fontFamily: "Quicksand-Bold",
-    color: "white",
+    color: "#FFFFFF",
     fontSize: 15,
     textAlign: "left",
     marginLeft: 7,
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
   },
   release_date: {
     fontFamily: "Quicksand-SemiBold",
-    color: "white",
+    color: "#FFFFFF",
     fontSize: 16,
     textAlign: "left",
     marginLeft: 10,
