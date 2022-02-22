@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
   original_title: {
     fontFamily: "Quicksand-SemiBold",
-    color: "white",
+    color: "#FFFFFF",
     fontSize: 25,
     textAlign: "left",
     marginLeft: 10,
